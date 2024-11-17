@@ -20,7 +20,7 @@ function App() {
       <button onClick={ change   }>Change Name</button>
       <br/><br/>
       <h2>Count Is {Count}</h2>
-      <button onClick={  () => {  setCount(Count+1);}   }>Counter</button>
+      <button onClick={  () => {  setCount(Count+1);}    }>Counter</button>
     </>
   );
 }
