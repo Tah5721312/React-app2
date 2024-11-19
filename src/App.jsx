@@ -11,7 +11,7 @@ const reducer = (state, action) => {
       case "CHANGE_AGE":
         return { ...state, age: action.newAge};
         case "CHANGECOUNTER":
-          return { ...state, startCount: action.newCount+1};
+          return { ...state, startCount: action.newCount};
           case "CHANGE_LIGHT":
             return { ...state, theme: action.newTheme};
             case "CHANGE_DARK":
@@ -21,9 +21,9 @@ const reducer = (state, action) => {
                 case "CHANGE_PINK":
                   return { ...state, theme: action.newTheme};
                   case "CHANGE_MOON":
-                    return { ...state, theme: action.newTheme=="" ? "Dark " :"" }; 
+                    return { ...state, theme: action.newTheme }; 
                      case "CHANGE_TOOGLE":
-                    return { ...state, theme: action.newTheme=="" ? "Dark " :"" };
+                    return { ...state, theme: action.newTheme };
         
     default:
       return state;
@@ -39,10 +39,10 @@ function App() {
     <div className={`App ${allData.theme} `}>
 
 
-<button onClick={  () => {     dispatch({ type: "CHANGE_TOOGLE", newTheme:allData.theme });   }} style={{marginBottom:"46px",marginTop:"46px"}} >Toggle Theme</button>
+<button onClick={  () => {     dispatch({ type: "CHANGE_TOOGLE", newTheme:allData.theme=="" ? "Dark " :"" });   }} style={{marginBottom:"46px",marginTop:"46px"}} >Toggle Theme</button>
 
 
-<div onChange={  () => {     dispatch({ type: "CHANGE_MOON",  newTheme:allData.theme});   }}   style={{marginBottom:"46px"}} className="btn-container">
+<div onChange={  () => {     dispatch({ type: "CHANGE_MOON",  newTheme:allData.theme =="" ? "Dark " :""});   }}   style={{marginBottom:"46px"}} className="btn-container">
   <i className="fa fa-sun-o" aria-hidden="true" />
   <label className="switch btn-color-mode-switch">
     <input type="checkbox" name="color_mode" id="color_mode" defaultValue={1} />
@@ -71,7 +71,7 @@ function App() {
       <button onClick={  () => {     dispatch({ type: "CHANGE_AGE", newAge:33 });   }} >Change Name</button>
       <br/><br/>
     
-      <button onClick={  () => {     dispatch({ type: "CHANGECOUNTER", newCount:allData.startCount });   }} >Count Is {allData.startCount}</button>
+      <button onClick={  () => {     dispatch({ type: "CHANGECOUNTER", newCount:allData.startCount+1 });   }} >Count Is {allData.startCount}</button>
     </div>
   );
 }
