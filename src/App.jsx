@@ -1,6 +1,7 @@
 import "./App.css";
 import "./theme.css";
 import { useReducer } from "react";
+import { Link } from "react-router-dom";
 
 const xxx = {name :"Tah57", age :28 ,startCount :0, theme:""};
 
@@ -29,7 +30,6 @@ const reducer = (state, action) => {
       return state;
   }
 };
-{/* onClick={  () => {  settheme( theme =="" ? "Dark " :""   )  }  }  */}
 
 function App() {
   
@@ -38,6 +38,7 @@ function App() {
   return (
     <div className={`App ${allData.theme} `}>
 
+<Link to="/Page2">Go to Page2</Link>
 
 <button onClick={  () => {     dispatch({ type: "CHANGE_TOOGLE", newTheme:allData.theme=="" ? "Dark " :"" });   }} style={{marginBottom:"46px",marginTop:"46px"}} >Toggle Theme</button>
 
